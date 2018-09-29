@@ -135,13 +135,9 @@ Sample query request :
 | title			| 			|  <p>Article's title.</p>							|
 | content			| 			|  <p>Article's content.</p>							|
 | author			| 			|  <p>Article's author.</p>							|
-| date_created			| 			|  <p>Article's date_created.</p>							|
-| date_updated			| 			|  <p>Article's date_updated.</p>							|
 
 ### apiDocs
-The API docs have been generated using apiDocs
-
-<a href="http://htmlpreview.github.com/?https://github.com/amitmula/connido-backend-technical-test/blob/master/docs/index.html" target="_blank">https://github.com/amitmula/connido-backend-technical-test/blob/master/docs/index.html</a>
+The API docs can be generated using ```npm run docs```
 
 ## unitTets
 
