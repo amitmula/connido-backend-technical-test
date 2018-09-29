@@ -12,6 +12,10 @@
       - [Parameters](#parameters)
     - [Update article](#update-article)
       - [Parameters](#parameters)
+    - [apiDocs](#apidocs)
+  - [unitTets](#unittets)
+      - [Running the test suites](#running-the-test-suites)
+      - [Generating coverage report](#generating-coverage-report)
 	
 # Articles API
 
@@ -134,7 +138,22 @@ Sample query request :
 | date_created			| 			|  <p>Article's date_created.</p>							|
 | date_updated			| 			|  <p>Article's date_updated.</p>							|
 
-
+### apiDocs
 The API docs have been generated using apiDocs
 
 <a href="http://htmlpreview.github.com/?https://github.com/amitmula/connido-backend-technical-test/blob/master/docs/index.html" target="_blank">https://github.com/amitmula/connido-backend-technical-test/blob/master/docs/index.html</a>
+
+## unitTets
+
+[Jest](https://jestjs.io/) has been used for writing the unit tests and [Istanbul](https://istanbul.js.org/) for code coverage. 
+
+#### Running the test suites
+```sh
+npm run test
+```
+
+#### Generating coverage report
+```sh
+npm run coverage
+``` 
+
