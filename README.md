@@ -7,8 +7,8 @@
     - [Create article](#create-article)
       - [Parameters](#parameters)
     - [Delete article](#delete-article)
-    - [Retrieve article](#retrieve-article)
-    - [Retrieve articles](#retrieve-articles)
+    - [Retrieve article by id](#retrieve-article-by-id)
+    - [Retrieve articles by query](#retrieve-articles-by-query)
       - [Parameters](#parameters)
     - [Update article](#update-article)
       - [Parameters](#parameters)
@@ -68,10 +68,7 @@ api will be hosted on localhost:9000
 
 ### Create article
 
-
-
 	POST /articles
-
 
 #### Parameters
 
@@ -83,26 +80,38 @@ api will be hosted on localhost:9000
 
 createdAt and updatedAt properties will be automatically injected by mongoose schema
 
+```sh
+curl -X POST \
+  http://localhost:9000/articles \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -d 'title=some%20article&content=some%20content&author=some%20author'
+```
+
+
+
 ### Delete article
 
-
-
 	DELETE /articles/:id
+```sh
+curl -X DELETE \
+  http://localhost:9000/articles/5bae0ff952aca931e407f882
+```
 
 
-### Retrieve article
 
-
+### Retrieve article by id
 
 	GET /articles/:id
 
+```sh
+curl -X GET \
+  http://localhost:9000/articles/5bae0ff952aca931e407f882
+```
 
-### Retrieve articles
 
 
-
+### Retrieve articles by query
 	GET /articles
-
 
 #### Parameters
 
@@ -116,15 +125,14 @@ createdAt and updatedAt properties will be automatically injected by mongoose sc
 
 query can be used to search for keywords in title & author fields. For this, mongoose-keywords plugin has been used, which adds a keywords field to the schema
 
-Sample query request :
+```sh
+curl -X GET \
+http://localhost:9000/articles?q=searchText&limit=1&page=1&sort=-createdAt&fields=title,author
+```
 
-```
-/articles?q=searchText&limit=1&page=1&sort=-createdAt&fields=title,author
-```
+
+
 ### Update article
-
-
-
 	PUT /articles/:id
 
 
@@ -135,6 +143,14 @@ Sample query request :
 | title			| 			|  <p>Article's title.</p>							|
 | content			| 			|  <p>Article's content.</p>							|
 | author			| 			|  <p>Article's author.</p>							|
+
+```sh
+curl -X PUT \
+  http://localhost:9000/articles/5bae0ff952aca931e407f882 \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -d 'title=updated%20article&content=updated%20content&author=another%20author'
+```
+
 
 ### apiDocs
 The API docs can be generated using ```npm run docs```
